@@ -1,0 +1,28 @@
+diff --git a/node_modules/vite-plugin-vue2/dist/main.js b/node_modules/vite-plugin-vue2/dist/main.js
+index a260b7d..c46a9c1 100644
+--- a/node_modules/vite-plugin-vue2/dist/main.js
++++ b/node_modules/vite-plugin-vue2/dist/main.js
+@@ -190,8 +190,8 @@ function genHmrCode(root, id, functional, templateRequest) {
+     const idJSON = JSON.stringify(id);
+     return `\n/* hot reload */
+ import __VUE_HMR_RUNTIME__ from ${JSON.stringify(index_1.vueHotReload)}
+-import __VUE_IDENTIFIER__ from "vue"
+-__VUE_HMR_RUNTIME__.install(__VUE_IDENTIFIER__)
++// import __VUE_IDENTIFIER__ from "vue"
++__VUE_HMR_RUNTIME__.install(Vue2)
+ if(!import.meta.env.SSR && __VUE_HMR_RUNTIME__.compatible){
+   if (!__VUE_HMR_RUNTIME__.isRecorded(${idJSON})) {
+     __VUE_HMR_RUNTIME__.createRecord(${idJSON}, __component__.options)
+diff --git a/node_modules/vite-plugin-vue2/dist/utils/vueHotReload.js b/node_modules/vite-plugin-vue2/dist/utils/vueHotReload.js
+index cf113fa..8aad237 100644
+--- a/node_modules/vite-plugin-vue2/dist/utils/vueHotReload.js
++++ b/node_modules/vite-plugin-vue2/dist/utils/vueHotReload.js
+@@ -7,7 +7,7 @@ var version
+ var __VUE_HMR_RUNTIME__ = Object.create(null)
+ var map = Object.create(null)
+ if (typeof window !== 'undefined') {
+-  window.__VUE_HMR_RUNTIME__ = __VUE_HMR_RUNTIME__
++  //window.__VUE_HMR_RUNTIME__ = __VUE_HMR_RUNTIME__
+ }
+ var installed = false
+ var isBrowserify = false
